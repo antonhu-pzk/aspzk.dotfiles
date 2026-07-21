@@ -1,0 +1,73 @@
+# dunstrc — neutral-dark
+# Mesmas cores do neutral-dark.rasi (rofi)
+# Coloque em: ~/.config/dunst/dunstrc
+
+[global]
+    monitor                = HDMI-A-1
+    follow                 = none
+
+    width                  = 520
+    height                 = 400
+    offset                 = 12x12
+    origin                 = bottom-right
+
+    padding                = 20
+    horizontal_padding     = 20
+    text_icon_padding      = 10
+    gap_size               = 6
+
+    frame_width            = 4
+    frame_color            = "#e0e0e0"
+
+    corner_radius          = 0
+
+    font                   = Iosevka Nerd Font 18
+    line_height            = 2
+    markup                 = full
+    format                 = "<b>%s</b>\n%b"
+    alignment              = left
+    vertical_alignment     = center
+    word_wrap              = yes
+    ellipsize              = middle
+    show_indicators        = no
+
+    icon_theme             = Papirus-Dark
+    enable_recursive_icon_lookup = true
+    icon_position          = left
+    min_icon_size          = 0
+    max_icon_size          = 64
+
+    sort                   = yes
+    idle_threshold         = 120
+
+    sticky_history         = yes
+    history_length         = 20
+
+    dmenu                  = /usr/bin/rofi -dmenu -p dunst
+    browser                = xdg-open
+
+    always_run_script      = true
+    title                  = Dunst
+    class                  = Dunst
+
+    mouse_left_click       = close_current
+    mouse_middle_click     = do_action, close_current
+    mouse_right_click      = close_all
+
+[urgency_low]
+    background             = "#121212"
+    foreground             = "#e0e0e0"
+    frame_color            = "#e0e0e0"
+    timeout                = 4
+
+[urgency_normal]
+    background             = "#121212"
+    foreground             = "#e0e0e0"
+    frame_color            = "#e0e0e0"
+    timeout                = 6
+
+[urgency_critical]
+    background             = "#121212"
+    foreground             = "#e0e0e0"
+    frame_color            = "#ff0303"
+    timeout                = 0

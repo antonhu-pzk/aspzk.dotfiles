@@ -1,0 +1,114 @@
+{
+  "layer": "bottom",
+  "position": "bottom",
+  "height": 40,
+  "spacing": 2,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "passthrough": false,
+  "fixed-center": true,
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-right": [
+    "custom/notification",
+    "cpu",
+    "memory",
+    "bluetooth",
+    "pulseaudio",
+    "clock",
+    "clock#simpleclock",
+    "tray",
+    "custom/power"
+  ],
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "active-only": false,
+    "move-to-monitor": false,
+    "format": "{id}",
+    // "frames": mostra os ícones de cada janela dentro do workspace (workspace-taskbar)
+    "workspace-taskbar": {
+      "enable": true,
+      "update-active-window": true,
+      "active-window-position": "first",
+      "format": "{icon}",
+      "icon-size": 16,
+      "orientation": "horizontal"
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "separate-outputs": true
+  },
+
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10
+  },
+
+  // ==================== RELÓGIO COMPLETO (com calendário) ====================
+  "clock": {
+    "format": "  {:L%a %d %b}",
+    "calendar": {
+      "format": {
+        "days": "<span weight='normal'>{}</span>",
+        "months": "<span color='#cdd6f4'><b>{}</b></span>",
+        "today": "<span color='#f38ba8' weight='700'><u>{}</u></span>",
+        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+        "weeks": "<span color='#a6e3a1'><b>W{}</b></span>"
+      },
+      "mode": "month",
+      "mode-mon-col": 1,
+      "on-scroll": 1
+    },
+    "tooltip-format": "<span color='#cdd6f4' font='IosevkaTerm Nerd Font 16'><tt><small>{calendar}</small></tt></span>"
+  },
+
+  // ==================== RELÓGIO SIMPLES (só hora) ====================
+  "clock#simpleclock": {
+    "tooltip": false,
+    "format": "  {:%H:%M}"
+  },
+
+  "cpu": { 
+    "format": "  {usage}%", 
+    "tooltip": true, 
+    "interval": 1 
+  },
+
+  "memory": { 
+    "format": " {used:0.1f}GiB",
+    "tooltip": true
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  muted",
+    "format-icons": {
+      "headphone": "",
+      "default": [" ", " ", " "]
+    },
+    "on-click": "pavucontrol"
+  },
+
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "~/.config/rofi/scripts/power.sh",
+    "format": "⏻"
+  },
+
+    // ==================== BLUETOOTH ====================
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "󰂲",
+    "format-connected": " {num_connections}",
+    "format-on": "",
+    "format-off": "󰂲",
+    "tooltip-format": "Bluetooth: {status}\nController: {controller_alias}",
+    "tooltip-format-connected": "Bluetooth: {status}\n{controller_alias}\n\nDispositivos conectados:\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "• {device_alias}",
+    "on-click": "blueman-manager"
+  },
+}
