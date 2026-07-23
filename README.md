@@ -10,6 +10,7 @@ Here is a list of packages for using the dotfiles:
 - hyprland;
 - xdg-portal-hyprland;
 - hyprpolkitagent;
+- swaylock;
 - awww;
 - dunst;
 - rofi;
