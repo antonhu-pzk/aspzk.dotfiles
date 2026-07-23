@@ -11,6 +11,7 @@ Here is a list of packages for using the dotfiles:
 - xdg-portal-hyprland;
 - hyprpolkitagent;
 - swaylock;
+- playerctl;
 - awww;
 - dunst;
 - rofi;
