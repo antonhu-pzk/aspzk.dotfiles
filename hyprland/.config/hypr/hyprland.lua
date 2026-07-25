@@ -31,13 +31,13 @@ hl.monitor({
     scale    = "auto",
 })
 
--- =================
--- == MY PROGRAMS ==
--- =================
+-- ===============
+-- | MY PROGRAMS |
+-- ===============
 
 -- Set programs that you use
 local terminal    = "kitty"
-local fileManager = "dolphin"
+local fileManager = "nemo"
 local menu        = "rofi -show drun"
 local browser     = "firefox"
 local discord     = "discord"
@@ -65,7 +65,8 @@ end)
 hl.on("hyprland.start", function ()
   hl.exec_cmd("awww-daemon")
   hl.exec_cmd("dunst")
-  hl.exec_cmd("bash -c 'sleep 1; echo \"=== $(date) ===\" >> ~/waybar-boot.log; waybar -l trace >> ~/waybar-boot.log 2>&1'")
+  hl.exec_cmd("bash -c 'waybar'")
+  hl.exec_cmd("bash -c 'wl-paste --watch cliphist store'")
   hl.exec_cmd("flatpak run com.rtosta.zapzap")
 end)
 
@@ -296,24 +297,20 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 
-
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("~/.config/rofi/scripts/power.sh"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("~/.config/rofi/scripts/screenshot.sh"))
 hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd("~/.config/rofi/scripts/menu.sh"))
---hl.bind("SUPER + D", hl.dsp.exec_cmd(menu))
--- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + W", hl.dsp.window.float({ action = "toggle" }))
 
 -- General Apps
 hl.bind(mainMod .. " + F1",  hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + F2",  hl.dsp.exec_cmd(discord))
-hl.bind(mainMod .. " + F6",  hl.dsp.exec_cmd(whatsapp))
-hl.bind(mainMod .. " + F4",  hl.dsp.exec_cmd(steam))
+hl.bind(mainMod .. " + F3",  hl.dsp.exec_cmd(steam))
+hl.bind(mainMod .. " + F4",  hl.dsp.exec_cmd("kitty --class cliamp cliamp --provider ytmusic"))
 hl.bind(mainMod .. " + F5",  hl.dsp.exec_cmd("heroic-run"))
-hl.bind(mainMod .. " + F3",  hl.dsp.exec_cmd("kitty --class cliamp cliamp --provider ytmusic"))
-hl.bind(mainMod .. " + F12", hl.dsp.exec_cmd("obs --startvirtualcam --minimize-to-tray"))
+hl.bind(mainMod .. " + F6",  hl.dsp.exec_cmd(whatsapp))
 
 -- Screenshot (grim + slurp, seleção de área, copia pro clipboard)
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(
