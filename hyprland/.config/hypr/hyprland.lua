@@ -29,6 +29,7 @@ hl.monitor({
     mode     = "1920x1080@120.003Hz",
     position = "1440x0",
     scale    = "auto",
+    vrr	     = true,
 })
 
 -- ===============
@@ -63,19 +64,36 @@ hl.on("hyprland.start", function()
 end)
 
 hl.on("hyprland.start", function ()
-  hl.exec_cmd("awww-daemon")
-  hl.exec_cmd("dunst")
-  hl.exec_cmd("bash -c 'waybar'")
-  hl.exec_cmd("bash -c 'wl-paste --watch cliphist store'")
-  hl.exec_cmd("flatpak run com.rtosta.zapzap")
+  hl.exec_cmd("bash -c 'sleep 2 && awww-daemon'")
+end)
+
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("bash -c 'sleep 2 && dunst'")
+end)
+
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("bash -c 'sleep 2 && waybar'")
+end)
+
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("wl-paste --watch cliphist store")
+end)
+
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("bash -c 'sleep 2 && flatpak run com.rtosta.zapzap'")
+end)
+
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("bash -c 'sleep 2 && gsr-ui'")
+end)
+
+
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("bash -c 'sleep 3 && /home/aspzk/.cargo/bin/mprisence'")
 end)
 
 hl.on("hyprland.start", function ()
   hl.exec_cmd("gentoo-pipewire-launcher restart")
-end)
-
-hl.on("hyprland.start", function()
-  hl.exec_cmd("bash -c 'sleep 3 && /home/aspzk/.cargo/bin/mprisence'")
 end)
 
 -- ===========================
@@ -302,14 +320,15 @@ hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("~/.config/rofi/scripts/power.sh
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("~/.config/rofi/scripts/screenshot.sh"))
 hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd("~/.config/rofi/scripts/menu.sh"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("~/.local/bin/ES-DE.sh"))
 hl.bind(mainMod .. " + W", hl.dsp.window.float({ action = "toggle" }))
 
 -- General Apps
 hl.bind(mainMod .. " + F1",  hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + F2",  hl.dsp.exec_cmd(discord))
 hl.bind(mainMod .. " + F3",  hl.dsp.exec_cmd(steam))
-hl.bind(mainMod .. " + F4",  hl.dsp.exec_cmd("kitty --class cliamp cliamp --provider ytmusic"))
-hl.bind(mainMod .. " + F5",  hl.dsp.exec_cmd("heroic-run"))
+hl.bind(mainMod .. " + F4",  hl.dsp.exec_cmd("kitty --class cliamp cliamp --provider plex"))
+hl.bind(mainMod .. " + F5",  hl.dsp.exec_cmd("kitty --class btop btop"))
 hl.bind(mainMod .. " + F6",  hl.dsp.exec_cmd(whatsapp))
 
 -- Screenshot (grim + slurp, seleção de área, copia pro clipboard)
