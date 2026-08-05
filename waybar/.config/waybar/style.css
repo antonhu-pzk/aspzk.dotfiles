@@ -1,7 +1,7 @@
 * {
   min-height: 0;
   min-width: 0;
-	  font-family: "IosevkaTerm Nerd Font", monospace;
+	  font-family: "IosevkaTerm Nerd Font", "Symbols Nerd Font Mono", "Noto Color Emoji", monospace;
   font-size: 14px;
   font-weight: 700;
 }
