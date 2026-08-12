@@ -42,7 +42,7 @@ local fileManager = "thunar"
 local menu        = "rofi -show drun"
 local browser     = "firefox"
 local discord     = "discord"
-local whatsapp    = "flatpak run com.rtosta.zapzap"
+local whatsapp    = "zapzap"
 local steam       = "steam"
 
 -- ===============
@@ -80,7 +80,7 @@ hl.on("hyprland.start", function ()
 end)
 
 hl.on("hyprland.start", function ()
-  hl.exec_cmd("bash -c 'sleep 2 && flatpak run com.rtosta.zapzap'")
+  hl.exec_cmd("bash -c 'sleep 2 && zapzap'")
 end)
 
 hl.on("hyprland.start", function ()
@@ -331,6 +331,7 @@ hl.bind(mainMod .. " + F4",  hl.dsp.exec_cmd("kitty --class cliamp cliamp --prov
 hl.bind(mainMod .. " + F5",  hl.dsp.exec_cmd("kitty --class btop btop"))
 hl.bind(mainMod .. " + F6",  hl.dsp.exec_cmd(whatsapp))
 
+hl.bind(mainMod .. " + X",  hl.dsp.exec_cmd("heroic-run"))
 -- Screenshot (grim + slurp, seleção de área, copia pro clipboard)
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(
     [[grim -g "$(slurp -d)" - | wl-copy && notify-send "Screenshot" "Copiado para a área de transferência"]]
