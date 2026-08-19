@@ -41,7 +41,7 @@ local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "rofi -show drun"
 local browser     = "firefox"
-local discord     = "discord"
+local discord     = "discord-canary"
 local whatsapp    = "zapzap"
 local steam       = "steam"
 
@@ -80,13 +80,8 @@ hl.on("hyprland.start", function ()
 end)
 
 hl.on("hyprland.start", function ()
-  hl.exec_cmd("bash -c 'sleep 2 && zapzap'")
+  hl.exec_cmd("bash -c 'sleep 2 && flatpak run com.rtosta.zapzap'")
 end)
-
-hl.on("hyprland.start", function ()
-  hl.exec_cmd("bash -c 'sleep 2 && gsr-ui'")
-end)
-
 
 hl.on("hyprland.start", function ()
   hl.exec_cmd("bash -c 'sleep 3 && /home/aspzk/.cargo/bin/mprisence'")
@@ -96,6 +91,9 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("gentoo-pipewire-launcher restart")
 end)
 
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("bash -c 'sleep 5 && gsr-ui'")
+end)
 -- ===========================
 -- == ENVIRONMENT VARIABLES ==
 -- ===========================
@@ -421,5 +419,41 @@ hl.window_rule({
     match = { class = "hyprland-run" },
 
     move  = "20 monitor_h-120",
+    float = true,
+})
+
+-- =====================================
+-- == REGRAS POR APLICATIVO (STEAM / FIREFOX) ==
+-- =====================================
+
+-- Steam: flutua tudo (Friends List, popups de loja, notificações, etc.)...
+hl.window_rule({
+    name  = "steam-float",
+    match = { class = "^(steam)$" },
+
+    float = true,
+})
+
+-- ...menos a janela principal do cliente (título "Steam"), que tila normal
+hl.window_rule({
+    name  = "steam-main-tile",
+    match = { class = "^(steam)$", title = "^(Steam)$" },
+
+    tile = true,
+})
+
+-- Firefox: a janela principal (título termina em "Mozilla Firefox") tila normal
+hl.window_rule({
+    name  = "firefox-main-tile",
+    match = { class = "^(firefox)$", title = ".*Mozilla Firefox$" },
+
+    tile = true,
+})
+
+-- Qualquer outra janela do Firefox (PiP, print, save dialog, etc.) flutua
+hl.window_rule({
+    name  = "firefox-popups-float",
+    match = { class = "^(firefox)$", title = "negative:.*Mozilla Firefox$" },
+
     float = true,
 })
