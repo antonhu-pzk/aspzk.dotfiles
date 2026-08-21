@@ -1,19 +1,15 @@
 /**
  * neutral-dark.rasi
- * Tema neutro escuro para rofi no Sway/Arch Linux
- * Coloque em: ~/.config/rofi/neutral-dark.rasi
- * Use com:   rofi -show drun -theme neutral-dark
- * Ou defina: rofi.theme: neutral-dark  no ~/.config/rofi/config.rasi
  */
 
 * {
-    bg0:        #1c1c1e;
-    bg1:        #2c2c2e;
-    bg2:        #3a3a3c;
-    fg0:        #e5e5ea;
-    fg1:        #aeaeb2;
-    fg2:        #6e6e73;
-    accent:     #636366;
+    bg0:        #000000;
+    bg1:        #121212;
+    bg2:        #FFFFFF;
+    fg0:        #FFFFFF;
+    fg1:        #FFFFFF;
+    fg2:        #FFFFFF;
+    accent:     #FFFFFF;
 
     font: "Iosevka Nerd Font 13";     
     background-color: transparent;

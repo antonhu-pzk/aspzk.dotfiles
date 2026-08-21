@@ -1,47 +1,63 @@
+/* ==================== VARIÁVEIS DE COR ==================== */
+@define-color text-primary    #FFFFFF;    /* texto padrão dos módulos */
+@define-color bg-module       #000000;    /* fundo dos módulos e workspaces */
+@define-color accent-red      #ff6b6b;    /* vermelho: urgent, power */
+@define-color gray-muted      #292828;    /* cinza: foco, desabilitado, mutado */
+@define-color bg-hover        #212121;    /* fundo em hover */
+@define-color accent-green    #8cff8c;    /* verde: tocando, conectado */
+@define-color gray-border     #121212;    /* bordas e separadores sutis */
+@define-color bg-transparent  transparent; /* fundo transparente */
+
 * {
   min-height: 0;
   min-width: 0;
 	  font-family: "IosevkaTerm Nerd Font", "Symbols Nerd Font Mono", "Noto Color Emoji", monospace;
   font-size: 14px;
   font-weight: 700;
+  box-shadow: none;
+  text-shadow: none;
+  background-image: none;
 }
 
 window#waybar {
   transition-property: background-color;
 /*  transition-duration: 0.5s; */
-  background-color: #0a0a0a;        /* Fundo principal bem escuro (quase preto) */
-  color: #e0e0e0;
+  background-color: @bg-transparent;      
+  color: @text-primary;
+
 }
 
-/* ==================== WORKSPACES (Sway) ==================== */
+/* ==================== WORKSPACES  ==================== */
 #workspaces button {
   padding: 0.3rem 0.6rem;
   margin: 0.4rem 0.25rem;
   border-radius: 3px;
-  background-color: #121212;
-	  border: 2px solid #0a0a0a;
-  color: #b0b0b0;
+  background-color: @bg-module;
+	  border: 2px solid @bg-module;
+  color: @text-primary;
 /*  transition: all 0.2s ease; */
 }
 
 #workspaces button:hover {
-  background-color: #3a3a3a;
-  color: #ffffff;
+  background-color: @bg-hover;
+  background-image: none;
+  box-shadow: none;
+  color: @text-primary;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  background-color: #424141;
-  color: #ffffff;
+  background-color: @gray-border;
+  color: @text-primary;
   font-weight: 700;
-  border: 2px solid #777777;     /* Borda mais fina */
+  border: 2px solid @gray-muted;     /* Borda mais fina */
 }
 
 /* Workspace urgente */
 #workspaces button.urgent {
   background-color: #4a2c2c;
-  color: #ff6b6b;
-  border: 2px solid #ff6b6b;
+  color: @accent-red;
+  border: 2px solid @accent-red;
 }
 
 /* ==================== FRAMES (janelas dentro do workspace) ==================== */
@@ -54,12 +70,13 @@ window#waybar {
 
 #workspaces .taskbar-window:hover {
   opacity: 1;
+  background-color: @bg-hover;
 }
 
 /* Janela focada dentro do workspace */
 #workspaces .taskbar-window.active {
   opacity: 1;
-  background-color: #3a3a3a;
+  background-color: @bg-hover;
 }
 
 /* ==================== MÓDULOS GERAIS ==================== */
@@ -77,13 +94,13 @@ window#waybar {
   padding: 0.3rem 0.6rem;
   margin: 0.4rem 0.25rem;
   border-radius: 1px;
-  background-color: #121212;        /* Mesmo cinza escuro dos workspaces */
-  color: #e0e0e0;
+  background-color: @bg-module;        /* Mesmo cinza escuro dos workspaces */
+  color: @text-primary;
 }
 
 /* Estados especiais do MPRIS (música) */
 #mpris.playing {
-  color: #8cff8c;                   /* Verde suave quando tocando */
+  color: @accent-green;                   /* Verde suave quando tocando */
 }
 
 #mpris.paused {
@@ -91,62 +108,62 @@ window#waybar {
 }
 
 /* ==================== CORES ESPECÍFICAS POR MÓDULO ==================== */
-#cpu     { color: #e0e0e0; }        
-#memory  { color: #e0e0e0; }      
-#clock   { color:  #e0e0e0; } 
-#pulseaudio { color: #e0e0e0; }
+#cpu     { color: @text-primary; }        
+#memory  { color: @text-primary; }      
+#clock   { color:  @text-primary; } 
+#pulseaudio { color: @text-primary; }
 
 /* ==================== BLUETOOTH ==================== */
 #bluetooth {
   padding: 0.3rem 0.6rem;
   margin: 0.4rem 0.25rem;
   border-radius: 1px;
-  background-color: #121212;
-  color: #e0e0e0;
+  background-color: @bg-module;
+  color: @text-primary;
 }
 
 /* Quando Bluetooth está ligado mas sem dispositivos */
 #bluetooth {
-  color: #e0e0e0;
+  color: @text-primary;
 }
 
 /* Quando tem dispositivos conectados */
 #bluetooth.connected {
-  color: #8cff8c;        /* Verde suave (igual ao mpris.playing) */
+  color: @accent-green;        /* Verde suave (igual ao mpris.playing) */
 }
 
 /* Quando Bluetooth está desligado */
 #bluetooth.disabled,
 #bluetooth.off {
-  color: #777777;        /* Cinza (igual ao pulseaudio.muted) */
+  color: @gray-muted;        /* Cinza (igual ao pulseaudio.muted) */
 }
 
 #pulseaudio.muted {
-  color: #777777;
+  color: @gray-muted;
 }
 
 #window {
-  color: #e0e0e0;
+  color: @text-primary;
 }
 
 #custom-logo  { color: #aaaaaa; }
-#custom-power { color: #ff6b6b; }   /* Vermelho suave para desligar */
+#custom-power { color: @accent-red; }   /* Vermelho suave para desligar */
 
 /* Tooltip */
 tooltip {
   background-color: #1a1a1a;
-  border: 2px solid #555555;
-  color: #e0e0e0;
+  border: 2px solid @gray-border;
+  color: @text-primary;
 }
 
 /* Outros */
 #custom-sep {
   padding: 0px;
-  color: #555555;
+  color: @gray-border;
 }
 
 window#waybar.empty #window {
-  background-color: transparent;
+  background-color: @bg-transparent;
 }
 
 /* ==================== CUSTOM POWER ==================== */
@@ -154,8 +171,8 @@ window#waybar.empty #window {
   padding: 0.20rem 0.35rem 0.20rem 0.10rem;   /* cima, direita, baixo, esquerda */
   margin: 0.4rem 0.45rem 0.4rem 0.25rem;      /* margem direita aumentada */
   border-radius: 1px;
-  background-color: #121212;
-  color: #ff6b6b;
+  background-color: @bg-module;
+  color: @accent-red;
   font-size: 15px;
   font-weight: 900;
   min-width: 36px;

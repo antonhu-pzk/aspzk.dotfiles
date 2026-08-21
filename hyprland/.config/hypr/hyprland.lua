@@ -334,6 +334,7 @@ hl.bind(mainMod .. " + X",  hl.dsp.exec_cmd("heroic-run"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(
     [[grim -g "$(slurp -d)" - | wl-copy && notify-send "Screenshot" "Copiado para a área de transferência"]]
 ))
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("killall -q waybar; waybar"))
 hl.bind(mainMod .. " + H", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind("SUPER + F", hl.dsp.window.fullscreen({ action = "toggle" }))

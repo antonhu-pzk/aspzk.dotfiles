@@ -27,6 +27,7 @@
     "active-only": false,
     "move-to-monitor": false,
     "format": "{id}",
+    "on-click": "activate",
     // "frames": mostra os ícones de cada janela dentro do workspace (workspace-taskbar)
     "workspace-taskbar": {
       "enable": true,
