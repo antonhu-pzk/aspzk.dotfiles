@@ -30,8 +30,8 @@ window#waybar {
 /* ==================== WORKSPACES  ==================== */
 #workspaces button {
   padding: 0.3rem 0.6rem;
-  margin: 0.4rem 0.25rem;
-  border-radius: 3px;
+  margin: 0rem;
+  border-radius: 0;
   background-color: @bg-module;
 	  border: 2px solid @bg-module;
   color: @text-primary;
@@ -92,7 +92,7 @@ window#waybar {
 #window,
 #mpris {
   padding: 0.3rem 0.6rem;
-  margin: 0.4rem 0.25rem;
+  margin: 0rem;
   border-radius: 1px;
   background-color: @bg-module;        /* Mesmo cinza escuro dos workspaces */
   color: @text-primary;
@@ -116,7 +116,7 @@ window#waybar {
 /* ==================== BLUETOOTH ==================== */
 #bluetooth {
   padding: 0.3rem 0.6rem;
-  margin: 0.4rem 0.25rem;
+  margin: 0rem;
   border-radius: 1px;
   background-color: @bg-module;
   color: @text-primary;
@@ -169,7 +169,7 @@ window#waybar.empty #window {
 /* ==================== CUSTOM POWER ==================== */
 #custom-power {
   padding: 0.20rem 0.35rem 0.20rem 0.10rem;   /* cima, direita, baixo, esquerda */
-  margin: 0.4rem 0.45rem 0.4rem 0.25rem;      /* margem direita aumentada */
+  margin: 0rem;                               /* sem margem em nenhum lado */
   border-radius: 1px;
   background-color: @bg-module;
   color: @accent-red;

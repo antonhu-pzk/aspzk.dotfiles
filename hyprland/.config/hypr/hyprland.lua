@@ -64,7 +64,7 @@ hl.on("hyprland.start", function()
 end)
 
 hl.on("hyprland.start", function ()
-  hl.exec_cmd("bash -c 'sleep 2 && awww-daemon'")
+  hl.exec_cmd("awww-daemon")
 end)
 
 hl.on("hyprland.start", function ()
@@ -72,7 +72,7 @@ hl.on("hyprland.start", function ()
 end)
 
 hl.on("hyprland.start", function ()
-  hl.exec_cmd("bash -c 'sleep 2 && waybar'")
+  hl.exec_cmd("waybar")
 end)
 
 hl.on("hyprland.start", function ()
