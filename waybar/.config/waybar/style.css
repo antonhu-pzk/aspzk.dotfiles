@@ -47,10 +47,10 @@ window#waybar {
 
 #workspaces button.focused,
 #workspaces button.active {
-  background-color: @gray-border;
+  background-color: @bg-module;
   color: @text-primary;
   font-weight: 700;
-  border: 2px solid @gray-muted;     /* Borda mais fina */
+  border: 2px solid @gray-border;     /* Borda mais fina */
 }
 
 /* Workspace urgente */
